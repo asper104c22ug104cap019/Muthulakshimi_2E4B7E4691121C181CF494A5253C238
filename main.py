@@ -1,36 +1,32 @@
-class BankAccount:
-    def __init__(self, account_number, account_holder_name, initial_balance=0):
-        self.__account_number = account_number
-        self.__account_holder_name = account_holder_name
-        self.__account_balance = initial_balance
+def linear_search_product(products, target_product):
 
-    def deposit(self, amount):
-        if amount > 0:
-            self.__account_balance += amount
-            print(f"Deposited {amount} units. New balance: {self.__account_balance}")
-        else:
-            print("Deposit amount must be greater than zero.")
+    indices = []
 
-    def withdraw(self, amount):
-        if 0 < amount <= self.__account_balance:
-            self.__account_balance -= amount
-            print(f"Withdrew {amount} units. New balance: {self.__account_balance}")
-        else:
-            print("Withdrawal amount must be greater than zero and less than or equal to the account balance.")
+    for index, product in enumerate(products):
 
-    def display_balance(self):
-        print(f"Account Holder: {self.__account_holder_name}")
-        print(f"Account Number: {self.__account_number}")
-        print(f"Account Balance: {self.__account_balance}")
+        if product == target_product:
+
+            indices.append(index)
+
+    return indices
+# Sample list of products
+
+product_list = ["apple", "banana", "orange", "apple", "grape", "apple"]
 
 
-# Testing the BankAccount class
-if __name__ == "__main__":
-    account = BankAccount("1234567890", "John Doe", 1000)
 
-    account.display_balance()  # Should display the initial balance
+# Target product to search for
 
-    account.deposit(500)  # Depositing 500 units
-    account.withdraw(200)  # Withdrawing 200 units
+target_product = "apple"
 
-    account.display_balance()  # Should display the updated balance after transactions
+
+
+# Call the function
+
+result = linear_search_product(product_list, target_product)
+
+
+
+# Print the result
+
+print(result)
